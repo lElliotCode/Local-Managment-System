@@ -35,3 +35,13 @@ export type SaleItem = {
     subtotal: number,
     created_at: string
 }
+
+// Herlper para formatear moneda
+
+export const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        minimumFractionDigits: 0,
+    }).format(amount)
+}
