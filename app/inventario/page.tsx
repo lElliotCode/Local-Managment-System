@@ -28,7 +28,7 @@ export default function InventarioPage() {
                         onClick={() => setIsModalOpen(true)}
                         className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow-lg"
                     >
-                        + Agregar un producto
+                        Agregar un producto
                     </button>
                 </div>
 
