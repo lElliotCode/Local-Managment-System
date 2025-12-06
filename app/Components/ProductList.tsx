@@ -111,16 +111,16 @@ export default function ProductList({ refreshTrigger }: Props) {
                 </div>
             )}
 
-            <div className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(140px,1fr))]">
+            <div className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                 {filteredProducts.map((product) => {
                     const isLowStock = product.stock <= product.low_stock_threshold
                     const isCritical = product.stock <= 2
                     return (
                         <div
                             key={product.id}
-                            className="border border-slate-100 hover:shadow-xl rounded-lg bg-white px-4 py-4 transition-shadow"
+                            className="border border-slate-100 hover:shadow-xl rounded-lg bg-white px-4 py-4 transition-shadow min-h-[150px]"
                         >
-                            <div>
+                            <div className="flex flex-col items-start justify-between h-full">
                                 <div>
                                     <div className="flex items-center gap-2">
                                         <h4 className="font-semibold text-lg">{product.name}</h4>
