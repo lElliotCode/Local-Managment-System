@@ -166,7 +166,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
                         </label>
                         <input
                             type="number"
-                            min='5'
+                            min='0'
                             value={lowStock}
                             onChange={(e) => setLowStock(e.target.value)}
                             placeholder="50"
