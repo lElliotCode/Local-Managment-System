@@ -36,6 +36,17 @@ export type SaleItem = {
     created_at: string
 }
 
+export type CartItem = {
+    product: Product
+    quantity: number
+    subtotal: number
+}
+
+export type SaleWithItems = {
+    sale: Sale
+    items: SaleItem[]
+}
+
 // Herlper para formatear moneda
 
 export const formatCurrency = (amount: number) => {

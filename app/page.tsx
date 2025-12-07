@@ -129,7 +129,7 @@ export default function Home() {
           {/* Productos bajo Stock */}
           <div className={`bg-gradient-to-br ${stats.lowStockProducts > 0
             ? 'from-orange-100 to-orange-50'
-            : 'from-gray-400 to-gray-500'
+            : 'white'
             } rounded-xl border border-zinc-300 p-6 text-zinc-900 shadow-lg hover:shadow-xl transition-shadow`}>
             <div className='flex items-center justify-between mb-2'>
               <span className='text-3xl '>Bajo Stock</span>
@@ -157,8 +157,8 @@ export default function Home() {
               <div className='flex flex-col items-center gap-4 mb-4'>
                 <span className='text-4xl'>💰</span>
                 <div className='flex flex-col text-center'>
-                  <h3 className='text-4xl font-bold'>Nueva venta</h3>
-                  <small className='text-zinc-800 text-2xl'>Registrar venta rápida</small>
+                  <h3 className='md:text-4xl font-bold'>Nueva venta</h3>
+                  <small className='text-zinc-800 md:text-2xl'>Registrar venta rápida</small>
                 </div>
               </div>
               <div className='text-right text-zinc-900'>
@@ -174,8 +174,8 @@ export default function Home() {
               <div className='flex flex-col items-center  gap-4 mb-4'>
                 <span className='text-4xl'>📦</span>
                 <div className='flex flex-col text-center'>
-                  <h3 className='text-4xl font-bold '>Inventario</h3>
-                  <small className='text-zinc-800 text-2xl' >Gestionar productos y stock</small>
+                  <h3 className='md:text-4xl font-bold '>Inventario</h3>
+                  <small className='text-zinc-800 md:text-2xl' >Gestionar productos y stock</small>
                 </div>
               </div>
               <div className='text-right text-zinc-900 text-2xl font-light'>
