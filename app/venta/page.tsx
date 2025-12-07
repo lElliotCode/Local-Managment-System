@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Navbar from '../components/Navbar'
-import ProductSearch from '../components/ProductSearch'
-import Cart from '../components/Cart'
-import CheckoutModal from '../components/CheckoutModal'
+import Navbar from '../Components/Navbar'
+import ProductSearch from '../Components/ProductSearch'
+import Cart from '../Components/Cart'
+import CheckoutModal from '../Components/CheckoutModal'
 import { supabase, type Product, type CartItem } from '@/lib/supabase'
 import { clearCart, calculateTotal } from '@/lib/cart-utils'
 

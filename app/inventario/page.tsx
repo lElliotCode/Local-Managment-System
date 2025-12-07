@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react"
-import Navbar from "../components/Navbar"
-import ProductList from "../components/ProductList"
-import AddProductModal from "../components/AddProductModal"
+import Navbar from "../Components/Navbar"
+import ProductList from "../Components/ProductList"
+import AddProductModal from "../Components/AddProductModal"
 
 export default function InventarioPage() {
     const [refreshTrigger, setRefreshTrigger] = useState(0)

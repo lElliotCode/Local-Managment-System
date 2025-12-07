@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import { supabase, formatCurrency, type Product } from '@/lib/supabase'
-import SalesHistory from './components/SalesHistory';
+import SalesHistory from './Components/SalesHistory';
 
 type DashboardStats = {
   totalProducts: number
