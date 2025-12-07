@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
-import Navbar from './Components/Navbar';
+import Navbar from './components/Navbar';
 import { supabase, formatCurrency, type Product } from '@/lib/supabase'
+import SalesHistory from './components/SalesHistory';
 
 type DashboardStats = {
   totalProducts: number
@@ -22,7 +23,6 @@ export default function Home() {
   })
   const [loading, setLoading] = useState(false)
   const [lowStockItems, setLowStockItems] = useState<any[]>([])
-  const [salesOfDay, setSalesOfDay] = useState<Product[]>([])
 
   useEffect(() => {
     fetchDashboardData()
@@ -52,8 +52,6 @@ export default function Home() {
       if (salesError) throw salesError
 
       const totalSales = sales?.reduce((sum, sale) => sum + sale.total, 0) || 0
-
-      console.log(sales)
 
       setStats({
         totalProducts: products?.length || 0,
@@ -248,15 +246,7 @@ export default function Home() {
           <button className='rounded p-2 hover:bg-slate-50/50 cursor-pointer'>Ver todas →</button>
         </div>
         <div>
-          <div className='text-sm opacity-90'>
-            {stats.todaySalesCount < 1 ? (
-              <div>
-                No se registraron ventas hoy
-              </div>
-            ): (
-              stats.todaySales
-            )}
-          </div>
+          <SalesHistory />
         </div>
       </div>
     </div >

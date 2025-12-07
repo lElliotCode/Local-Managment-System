@@ -134,7 +134,7 @@ export default function ProductList({ refreshTrigger }: Props) {
                 </div>
             )}
 
-            <div className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(195px,1fr))]">
+            <div className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
                 {filteredProducts.map((product) => {
                     const isLowStock = product.stock <= product.low_stock_threshold
                     const isCritical = product.stock <= 2

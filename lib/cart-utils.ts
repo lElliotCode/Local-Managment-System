@@ -5,6 +5,8 @@ export const addToCart = (
     product: Product,
     quantity: number = 1
 ): CartItem[] => {
+
+    
     const existingIndex = cart.findIndex(item => item.product.id === product.id)
 
     if (existingIndex !== -1) {
