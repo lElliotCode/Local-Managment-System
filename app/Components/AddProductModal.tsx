@@ -20,7 +20,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
     if (!isOpen) return null
 
     const selectedCategory = CATEGORIES.find(c => c.name === category)
-    const unit = selectedCategory?.unit || 'unidad'
+    const unit = selectedCategory?.unit || 'kilogramo'
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -152,9 +152,9 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
                         <div className="bg-blue-50 border border-blue-200 rounded-lg flex justify-center items-center text-center">
                             <p className="text-sm text-blue-800">
                                 💡 <strong>Tip:</strong> {
-                                    unit === 'kg'
-                                        ? 'Puedes usar decimales (ej: 2.5 kg)'
-                                        : 'Stock en unidades completas'
+                                    unit === 'unidad'
+                                        ? 'Stock en unidades completas'
+                                        : 'Puedes usar decimales (ej: 2.5 kg)'
                                 }
                             </p>
                         </div>

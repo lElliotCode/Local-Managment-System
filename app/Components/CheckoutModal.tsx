@@ -31,7 +31,7 @@ export default function CheckoutModal({ isOpen, cart, onConfirm, onClose }: Prop
         try {
             await onConfirm(payment)
         } catch (error) {
-            console.error('Error:', error)
+            console.error('Error con el pago: ', error)
         } finally {
             setLoading(false)
         }
@@ -74,7 +74,7 @@ export default function CheckoutModal({ isOpen, cart, onConfirm, onClose }: Prop
                         type="number"
                         step="0.01"
                         min="0"
-                        max="999999" // Límite razonable
+                        max="999999999" // Límite razonable
                         value={paymentAmount}
                         onChange={(e) => {
                             const value = parseFloat(e.target.value)
