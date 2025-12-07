@@ -98,7 +98,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
 
                         <div className="">
                             <label className="block text-sm font-medium mb-1">
-                                Precio por {unit === 'kg' ? 'kg' : 'unidad'} *
+                                Precio por {unit === 'unidad' ? 'unidad' : 'kg'} *
                             </label>
                             <input
                                 type="number"
@@ -129,7 +129,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
                                 ))}
                             </select>
                             <p className="text-xs text-gray-500 mt-1">
-                                📦 Este producto se medirá en <strong>{unit === 'kg' ? 'kilogramos' : 'unidades'}</strong>
+                                📦 Este producto se medirá en <strong>{unit === 'unidad' ? 'unidades' : 'kilogramos'}</strong>
                             </p>
                         </div>
 
