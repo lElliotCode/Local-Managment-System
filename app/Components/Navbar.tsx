@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import MobileSidebar from "./MobileSideBar"
 
 export default function Navbar() {
     const pathname = usePathname()
@@ -10,7 +11,8 @@ export default function Navbar() {
 
     return (
         <nav className="bg-white w-full sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4">
+
+            <div className=" mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center gap-2">
                         <div> {/*SVG casita */}
@@ -41,12 +43,16 @@ export default function Navbar() {
                             </div>
                         </div>
                         <div>
-                            <h1 className="font-bold">Stock & Sales</h1>
+                            <h1 className="font-bold">Stock & Ventas</h1>
                             <p className="text-xs text-gray-500">Sistema de gestión</p>
                         </div>
                     </Link>
 
-                    <div className="flex gap-2">
+                    <div className="md:hidden">
+                        <MobileSidebar />
+                    </div>
+
+                    <div className="hidden md:flex gap-2">
                         <Link
                             href="/"
                             className={`px-4 py-2 rounded-lg transition-colors ${isActive('/')

@@ -6,7 +6,7 @@ import { supabase } from "@/lib/supabase"
 type Props = {
     isOpen: boolean
     onClose: () => void
-    onSuccess?: () => void
+    onSuccess: () => void
 }
 
 export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
@@ -35,7 +35,9 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
             setStock('')
             setCategory('')
 
-            onSuccess?.()
+            if (error) throw error
+
+            onSuccess()
             onClose()
         } catch (error) {
             console.error('Error adding Product: ', error)
@@ -58,7 +60,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
                     <h3 className="text-xl font-bold">Agregar Producto</h3>
                     <button
                         onClick={onClose}
-                        className="text-gray-400 hover:text-gray-600 text-2xl"
+                        className="text-gray-400 hover:text-gray-600 text-2xl cursor-pointer"
                     >
                         X
                     </button>
@@ -144,7 +146,7 @@ export default function AddProductModal({ isOpen, onClose, onSuccess }: Props) {
                     </div>
 
                     <button
-                        className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                        className="w-full cursor-pointer bg-zinc-900 text-white py-3 rounded-lg hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                         disabled={loading}
                         type="submit"
                     >
