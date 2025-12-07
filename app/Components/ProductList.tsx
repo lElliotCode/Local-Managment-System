@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { supabase, type Product, formatCurrency } from "@/lib/supabase"
+import { supabase, type Product, formatCurrency, formatStock } from "@/lib/supabase"
 
 type Props = {
     refreshTrigger?: number
@@ -164,7 +164,7 @@ export default function ProductList({ refreshTrigger }: Props) {
                                                     isLowStock ? 'text-orange-600' :
                                                         'text-gray-600'
                                                     }`}>
-                                                Stock: {product.stock}
+                                                Stock: {formatStock(product.stock, product.unit)}
                                                 {isCritical && ' 🔴'}
                                                 {isLowStock && !isCritical && ' ⚠️'}
                                             </span>
@@ -184,14 +184,18 @@ export default function ProductList({ refreshTrigger }: Props) {
                                             <div className="flex gap-2">
                                                 <input
                                                     type="number"
+                                                    step={product.unit === 'kg' ? '0.1' : '1'}
+                                                    min="0"
                                                     value={editStock}
                                                     onChange={(e) => setEditStock(e.target.value)}
+                                                    required
+                                                    placeholder={product.unit === 'kg' ? '25.5' : '50'}
                                                     className="w-20 px-2 py-1 border rounded text-sm mb-2"
                                                     autoFocus
                                                 />
                                                 <div className="flex justify-around">
                                                     <button
-                                                        onClick={() => handleUpdateStock(product.id, parseInt(editStock))}
+                                                        onClick={() => handleUpdateStock(product.id, parseFloat(editStock))}
                                                         className="text-green-600 text-sm hover:bg-green-200 px-1 rounded"
                                                     >
                                                         ✓

@@ -14,6 +14,7 @@ export type Product = {
     price: number,
     stock: number,
     category: string | null,
+    unit: 'kg' | 'unidad' // nuevo campo
     low_stock_threshold: number,
     created_at: string,
     updated_at: string
@@ -47,7 +48,23 @@ export type SaleWithItems = {
     items: SaleItem[]
 }
 
-// Herlper para formatear moneda
+// Helper para formatear stock con unidad
+export const formatStock = (quantity: number, unit: 'kg' | 'unidad'): string => {
+  if (unit === 'kg') {
+    return `${quantity} kg`
+  }
+  return `${quantity} ${quantity === 1 ? 'unidad' : 'unidades'}`
+}
+
+// Categorías predefinidas con sus unidades
+export const CATEGORIES = [
+  { name: 'Panadería', unit: 'kg' as const },
+  { name: 'Rotisería', unit: 'kg' as const },
+  { name: 'Bebidas', unit: 'unidad' as const },
+  { name: 'Almacén', unit: 'unidad' as const },
+] as const
+
+// Helper para formatear moneda
 
 export const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('es-AR', {

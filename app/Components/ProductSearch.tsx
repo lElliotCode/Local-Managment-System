@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { formatCurrency, type Product, type CartItem } from '@/lib/supabase'
+import { formatCurrency, type Product, type CartItem, formatStock } from '@/lib/supabase'
 
 type Props = {
   products: Product[]
@@ -119,7 +119,7 @@ export default function ProductSearch({ products, cart, virtualStock, onAddToCar
                     isLowStock ? 'text-orange-600' : 
                     'text-gray-600'
                   }`}>
-                    Disponible: {availableStock}
+                    Disponible: {formatStock(availableStock, product.unit)}
                     {isLowStock && !isOutOfStock && ' ⚠️'}
                     {isOutOfStock && ' 🔴'}
                   </span>
